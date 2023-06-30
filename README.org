@@ -1,0 +1,24 @@
+#+TITLE: OM's Dotfiles
+
+* Table of contents :toc:
+- [[#what-are-dotfiles][What Are Dotfiles]]
+- [[#availabe-configs][Availabe Configs]]
+- [[#who-am-i][Who Am I?]]
+- [[#omar-mohamed-on-the-web][Omar Mohamed On The Web]]
+
+* What Are Dotfiles
+
+Dotfiles are the customization files that are used to personalize your Linux or other Unix-based system.  You can tell that a file is a dotfile because the name of the file will begin with a period–a dot!  The period at the beginning of a filename or directory name indicates that it is a hidden file or directory.  This repository contains my personal dotfiles.  They are stored here for convenience so that I may quickly access them on new machines or new installs.  Also, others may find some of my configurations helpful in customizing their own dotfiles.
+
+* Availabe Configs
+
+| [[https://github.com/Coptan99/Dotfiles/tree/master/.config/emacs][Emacs]] | [[https://github.com/Coptan99/Dotfiles/tree/master/.config/nvim][Neovim]] |
+| [[https://github.com/Coptan99/Dotfiles/blob/master/.zshrc][Zsh]]   | [[https://github.com/Coptan99/Dotfiles/blob/master/.tmux.conf][Tmux]]   |
+
+* Who Am I?
+
+I am Omar Mohamed (OM), a Computer Science (CS) student at October 6 University (also O6U), also a Junior Frontend Developer who spends time in configuring Linux for more productivity or keep searching for new technologies.
+
+* Omar Mohamed On The Web
+
++ [[https://linktr.ee/Coptan][Linktree]]
