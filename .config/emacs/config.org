@@ -138,7 +138,9 @@
       "." '(find-file :wk "Find file")
       "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
       "f r" '(counsel-recentf :wk "Find recent files")
-      "TAB TAB" '(comment-line :wk "Comment lines"))
+      "TAB TAB" '(comment-line :wk "Comment lines")
+      "[" '(flycheck-next-error :wk "Next error")
+      "]" '(flycheck-previous-error :wk "Previous error"))
 
     (om/leader-keys
       "b" '(:ignore t :wk "buffer")
@@ -292,16 +294,15 @@ Some packages that works togethter to offer a good programming environment
     (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
     :config
     (lsp-enable-which-key-integration t)
-    (setq lsp-headerline-breadcrumb-enable nil))
+    (setq lsp-headerline-breadcrumb-enable nil)
+    (setq python-indent-offset 4))
 
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode)
     :custom
     (lsp-ui-doc-position 'bottom))
 
-  (setq gc-cons-threshold (* 100 1024 1024)
-        read-process-output-max (* 1024 1024)
-        create-lockfiles nil)
+  (setq create-lockfiles nil)
 
   (use-package company
     :after lsp-mode
@@ -314,14 +315,14 @@ Some packages that works togethter to offer a good programming environment
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0))
 
-    (use-package yasnippet
+  (use-package yasnippet
     :ensure t
     :config
     (yas-global-mode 1))
 
   (use-package yasnippet-snippets :ensure t)
 
-   (use-package company-box
+  (use-package company-box
     :hook (company-mode . company-box-mode))
 
   (use-package flycheck :ensure t)
@@ -398,10 +399,12 @@ Let's make GNU Emacs look a little better.
 #+begin_src emacs-lisp
 
   (global-display-line-numbers-mode 1)
+  ;; (setq display-line-numbers-type 'relative)        ;; Useful with vim keybindings
   (global-visual-line-mode t)   
 
   ;; Disable line numbers for some modes
-  (dolist (mode '(treemacs-mode))
+  (dolist (mode '(treemacs-mode
+                  vterm-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 #+end_src
@@ -468,7 +471,7 @@ Let's make GNU Emacs look a little better.
 
 #+begin_src emacs-lisp
   (setq org-agenda-files '("~/projects/Org/agenda.org"
-                           "~/projects/Org/notes.org"))
+                           "~/projects/Org/repeaters.org"))
 #+end_src
 
 ** Enabling Org Bullets
