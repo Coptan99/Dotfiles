@@ -289,6 +289,7 @@ Some packages that works togethter to offer a good programming environment
     :commands (lsp lsp-deferred)
     :hook
     ((html-mode css-mode c++-mode python-mode) . lsp)
+    ((html-mode css-mode c++-mode python-mode) . tree-sitter-hl-mode)
     :init
     (setq lsp-keymap-prefix "C-c l")
     (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
@@ -302,18 +303,15 @@ Some packages that works togethter to offer a good programming environment
     :custom
     (lsp-ui-doc-position 'bottom))
 
-  (setq create-lockfiles nil)
+  (setq gc-cons-threshold (* 100 1024 1024)
+        read-process-output-max (* 1024 1024)
+        company-idle-delay 0.0 
+        company-minimum-prefix-length 1
+        create-lockfiles nil)
 
   (use-package company
     :after lsp-mode
-    :hook (lsp-mode . company-mode)
-    :bind (:map company-active-map
-                ("<tab>" . company-complete-selection))
-    (:map lsp-mode-map
-          ("<tab>" . company-indent-or-complete-common))
-    :custom
-    (company-minimum-prefix-length 1)
-    (company-idle-delay 0.0))
+    :hook (lsp-mode . company-mode))
 
   (use-package yasnippet
     :ensure t
@@ -321,9 +319,6 @@ Some packages that works togethter to offer a good programming environment
     (yas-global-mode 1))
 
   (use-package yasnippet-snippets :ensure t)
-
-  (use-package company-box
-    :hook (company-mode . company-box-mode))
 
   (use-package flycheck :ensure t)
 
@@ -336,7 +331,14 @@ Some packages that works togethter to offer a good programming environment
     :hook (prog-mode . rainbow-delimiters-mode))
 
   (electric-pair-mode 1)
-  (electric-indent-mode +1)
+
+  (use-package tree-sitter
+    :ensure t
+    :config
+    (global-tree-sitter-mode))
+
+  (use-package tree-sitter-langs
+    :ensure t)
 #+end_src
 
 * FONTS
@@ -492,7 +494,7 @@ Org-bullets gives us attractive bulets rather that asteriks.
 ** Disble Electric Indent
 
 #+begin_src emacs-lisp
-  ;;(electric-indent-mode -1)
+  (electric-indent-mode -1)
 #+end_src
 
 * RELOAD EMACS
