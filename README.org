@@ -3,6 +3,7 @@
 * Table of contents :toc:
 - [[#what-are-dotfiles][What Are Dotfiles]]
 - [[#availabe-configs][Availabe Configs]]
+- [[#i3wm][I3WM]]
 - [[#who-am-i][Who Am I?]]
 - [[#omar-mohamed-on-the-web][Omar Mohamed On The Web]]
 
@@ -12,8 +13,22 @@ Dotfiles are the customization files that are used to personalize your Linux or 
 
 * Availabe Configs
 
-| [[https://github.com/Coptan99/Dotfiles/tree/master/.config/emacs][Emacs]] | [[https://github.com/Coptan99/Dotfiles/tree/master/.config/nvim][Neovim]] |
-| [[https://github.com/Coptan99/Dotfiles/blob/master/.zshrc][Zsh]]   | [[https://github.com/Coptan99/Dotfiles/blob/master/.tmux.conf][Tmux]]   |
+| [[https://github.com/Coptan99/Dotfiles/tree/master/.config/emacs][Emacs]] | [[https://github.com/Coptan99/Dotfiles/tree/master/.config/nvim][Neovim]]   |
+| [[https://github.com/Coptan99/Dotfiles/blob/master/.zshrc][Zsh]]   | [[https://github.com/Coptan99/Dotfiles/blob/master/.tmux.conf][Tmux]]     |
+| i3    | i3status |
+
+* TODO I3WM
+
+I3 is a tiling window manager that is stripped down to its absolute minimum.
+If you were using a desktop environment and you want to switch to i3 you should install soe packages firstly, such as:
+
+1. *dmenu* Which is the dynamic menu for X.
+2. *lxqt-notificationd* which is a notification daemon which without it you will find some bugs with notifications in apps in other workspaces.
+3. *nm-applet* Which we will use to manage wifi networks. 
+4. *i3status* To be able to configure the statusbar
+5. *nitrogen* Which we will use to display a wallpaper as a background for our workspaces instead of our login manager wallpaper.
+6. *scrot* which we will use for taking screenshots.
+7. Add configuration for brightness settings.
 
 * Who Am I?
 
