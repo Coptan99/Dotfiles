@@ -302,7 +302,7 @@ Some packages that works togethter to offer a good programming environment
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode)
     :custom
-    (lsp-ui-doc-position 'bottom))
+    (lsp-ui-doc-position 'bottom))  
 
   (setq gc-cons-threshold (* 100 1024 1024)
         read-process-output-max (* 1024 1024)
@@ -626,7 +626,7 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
           which-key-max-display-columns nil
           which-key-min-display-lines 6
           which-key-side-window-slot -10
-          which-key-side-window-max-height 0.25
+          which-key-side-window-max-height 0.3
           which-key-idle-delay 0.8
           which-key-max-description-length 25
           which-key-allow-imprecise-window-fit t
