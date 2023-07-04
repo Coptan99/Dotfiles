@@ -47,9 +47,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# # Sreen brightness controls
+# Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Screenshot controls
+bindsym Print exec scrot ~/Pictures/%b%d::%H%M%S.png
+bindsym $mod+Print exec scrot -s -e ~/Pictures/%b%d::%H%M%S.png
 
 # Keyboard Layouts
 exec setxkbmap -model pc105 -layout us,ar -option 'grp:alt_shift_toggle'
