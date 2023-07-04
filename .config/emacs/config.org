@@ -11,6 +11,7 @@
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#buffer-move][BUFFER-MOVE]]
 - [[#code-completion][CODE COMPLETION]]
+- [[#dashboard][DASHBOARD]]
 - [[#fonts][FONTS]]
   - [[#setting-the-font-face][Setting The Font Face]]
   - [[#zooming-inout][Zooming In/Out]]
@@ -25,6 +26,7 @@
   - [[#enabling-org-bullets][Enabling Org Bullets]]
   - [[#souce-code-block][Souce code block]]
   - [[#disble-electric-indent][Disble Electric Indent]]
+- [[#projectile][PROJECTILE]]
 - [[#reload-emacs][RELOAD EMACS]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
@@ -289,7 +291,6 @@ Some packages that works togethter to offer a good programming environment
     :commands (lsp lsp-deferred)
     :hook
     ((html-mode css-mode c++-mode python-mode) . lsp)
-    ((html-mode css-mode c++-mode python-mode) . tree-sitter-hl-mode)
     :init
     (setq lsp-keymap-prefix "C-c l")
     (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
@@ -331,14 +332,27 @@ Some packages that works togethter to offer a good programming environment
     :hook (prog-mode . rainbow-delimiters-mode))
 
   (electric-pair-mode 1)
+#+end_src
 
-  (use-package tree-sitter
+* DASHBOARD
+
+#+begin_src emacs-lisp
+  (use-package dashboard
     :ensure t
+    :init
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
+    (setq dashboard-startup-banner 'logo)
+    (setq dashboard-center-content nil)
+    (setq dashboard-items '((recents . 10)
+                            (agenda . 5)
+                            (bookmarks . 5)
+                            (projects . 5)
+                            (registers . 5)))
     :config
-    (global-tree-sitter-mode))
-
-  (use-package tree-sitter-langs
-    :ensure t)
+    (dashboard-setup-startup-hook)
+    (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))))
 #+end_src
 
 * FONTS
@@ -348,15 +362,15 @@ Defining the various fonts that emacs will use.
 #+begin_src emacs-lisp
   (set-face-attribute 'default nil
                       :font "JetBrains Mono"
-                      :height 110
+                      :height 120
                       :weight 'medium)
   (set-face-attribute 'variable-pitch nil
                       :font "Ubuntu"
-                      :height 120
+                      :height 130
                       :weight 'medium)
   (set-face-attribute 'fixed-pitch nil
                       :font "JetBrains Mono"
-                      :height 110
+                      :height 120
                       :weight 'medium)
   ;; Makes commented text and keywords italics.
   ;; This is working in emacsclient but not emacs.
@@ -497,6 +511,15 @@ Org-bullets gives us attractive bulets rather that asteriks.
   (electric-indent-mode -1)
 #+end_src
 
+* PROJECTILE
+
+#+begin_src emacs-lisp
+  (use-package projectile
+    :ensure t
+    :config
+    (projectile-global-mode 1))
+#+end_src
+
 * RELOAD EMACS
 
 #+begin_src emacs-lisp
@@ -582,6 +605,12 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
 #+begin_src emacs-lisp
   (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
   (load-theme 'coptmacs t)
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1))
 #+end_src
 
 * WHICH KEY
