@@ -72,6 +72,9 @@ return require("packer").startup(function(use)
     })
     use("mzlogin/vim-markdown-toc")
 
+    use("brenoprata10/nvim-highlight-colors")
+    use ("ziontee113/color-picker.nvim")
+
     use("numToStr/Comment.nvim")
     use("eandrju/cellular-automaton.nvim")
     use("laytan/cloak.nvim")
