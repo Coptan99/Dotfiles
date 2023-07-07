@@ -452,7 +452,7 @@ Let's make GNU Emacs look a little better.
   (prog-mode . highlight-indent-guides-mode)
   :ensure t
   :config
-  (setq highlight-indent-guides-method 'bitmap)
+  (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-responsive 'stack))
 #+end_src
 
