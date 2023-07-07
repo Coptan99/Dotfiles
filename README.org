@@ -4,6 +4,7 @@
 - [[#what-are-dotfiles][What Are Dotfiles]]
 - [[#availabe-configs][Availabe Configs]]
 - [[#i3wm][I3WM]]
+- [[#notes][NOTES]]
 - [[#who-am-i][Who Am I?]]
 - [[#omar-mohamed-on-the-web][Omar Mohamed On The Web]]
 
@@ -29,6 +30,9 @@ If you were using a desktop environment and you want to switch to i3 you should 
 5. *nitrogen* Which we will use to display a wallpaper as a background for our workspaces instead of our login manager wallpaper.
 6. *scrot* which we will use for taking screenshots.
 7. Add configuration for brightness settings.
+
+* NOTES
+- Install *shell-color-scripts* using /yay/ or /paru/
 
 * Who Am I?
 
