@@ -55,6 +55,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym Print exec scrot ~/Pictures/%b%d::%H%M%S.png
 bindsym $mod+Print exec scrot -s -e ~/Pictures/%b%d::%H%M%S.png
 
+# Emacs keybindings
+bindsym $mod+e exec emacsclient -c -a 'emacs'
+
 # Keyboard Layouts
 exec setxkbmap -model pc105 -layout us,ar -option 'grp:alt_shift_toggle'
 
@@ -116,7 +119,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+- layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
